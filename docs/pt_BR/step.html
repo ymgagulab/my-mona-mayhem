@@ -23,6 +23,16 @@
     <link rel="stylesheet" href="../step.css">
     <link rel="stylesheet" href="../light-theme.css">
     <script src="../theme-toggle.js"></script>
+    <script>
+        function updateToggleIcon() {
+            const btn = document.querySelector('.theme-toggle');
+            if (!btn) return;
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            btn.innerHTML = isLight ? '🌙 Escuro' : '☀️ Claro';
+        }
+
+        document.addEventListener('DOMContentLoaded', updateToggleIcon);
+    </script>
 </head>
 <body>
     <header class="header">
@@ -32,7 +42,7 @@
                 <span class="header-title">Mona Mayhem Workshop</span>
             </a>
             <div class="header-nav">
-                <div class="track-toggle" role="tablist" aria-label="Workshop track toggle">
+                <div class="track-toggle" role="tablist" aria-label="Alternar trilha do workshop">
                     <button class="track-btn active" data-track="vscode" type="button">VS Code</button>
                     <button class="track-btn" data-track="cli" type="button">CLI</button>
                 </div>
